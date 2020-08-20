@@ -8,6 +8,10 @@
     return numberOfCharInRecurringString + numberOfCharInRemainderString
 }*/
 
+fun func2(s: String, n: Long): Long{
+    return s.repeat(n.toInt()/s.length+1).take(n.toInt()).count{it=='a'}.toLong()
+}
+
 fun func(s: String, n: Long): Long {
     return s.count{it=='a'}.toLong()*(n/s.length)+s.take(n.toInt()%s.length).count{it=='a'}
 }
@@ -23,8 +27,22 @@ fun main(args: Array<String>) {
     println(0L == func("ba", 1))
     println(1L == func("ba", 2))
     println(5L == func("ba", 10))
-
     println("return s.count{it=='a'}.toLong()*(n/s.length)+s.take(n.toInt()%s.length).count{it=='a'}".count())
+
+    println()
+    println(7L == func2("aba", 11)) //abaabaabaab
+    println(1L == func2("aba", 2))
+    println(1L == func2("abaaba", 1))
+    println(1L == func2("ababjknbj", 2))
+    println(2L == func2("ababjknbj", 3))
+    println(7L == func2("abaaba", 10))
+    println(0L == func2("ba", 1))
+    println(1L == func2("ba", 2))
+    println(5L == func2("ba", 10))
+    println(990000L == func2("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", 1000000))
+    println(1000000L == func2("a", 1000000))
+
+    println("return s.repeat(n.toInt()/s.length+1).take(n.toInt()).count{it=='a'}.toLong()".count())
 
 /*    val scan = Scanner(System.`in`)
     println("0. Введите бесконечную строку:")
