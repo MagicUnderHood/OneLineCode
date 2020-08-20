@@ -3,13 +3,13 @@
     val numberOfCharInString = s.count { it == 'a' }.toLong()
     val numberOfCharInRecurringString = numberOfCharInString * (n / s.length)
     val remainderCount = n % s.length
-    val remainderString = s.substring(0 until (n % s.length).toInt())
+    val remainderString = s.take(n.toInt() % s.length)
     val numberOfCharInRemainderString = remainderString.count { it == 'a' }
     return numberOfCharInRecurringString + numberOfCharInRemainderString
 }*/
 
 fun func(s: String, n: Long): Long {
-    return s.count{it=='a'}.toLong()*(n/s.length)+s.substring(0,n.toInt()%s.length).count{it=='a'}
+    return s.count{it=='a'}.toLong()*(n/s.length)+s.take(n.toInt()%s.length).count{it=='a'}
 }
 
 fun main(args: Array<String>) {
@@ -24,7 +24,7 @@ fun main(args: Array<String>) {
     println(1L == func("ba", 2))
     println(5L == func("ba", 10))
 
-    println("return s.count{it=='a'}.toLong()*(n/s.length)+s.substring(0,n.toInt()%s.length).count{it=='a'}".count())
+    println("return s.count{it=='a'}.toLong()*(n/s.length)+s.take(n.toInt()%s.length).count{it=='a'}".count())
 
 /*    val scan = Scanner(System.`in`)
     println("0. Введите бесконечную строку:")
@@ -37,3 +37,5 @@ fun main(args: Array<String>) {
 
     println(result)*/
 }
+
+//fun String.f()=count{it=='a'}
