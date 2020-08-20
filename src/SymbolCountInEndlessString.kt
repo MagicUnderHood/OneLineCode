@@ -1,32 +1,30 @@
-import java.util.*
-import kotlin.test.assertEquals
-
 // Complete the func function below.
 /*fun func(s: String, n: Long): Long {
-//    val symbolPredicate = ( it == 'a' )
-    val length = s.length
-    val lineNumberOfRepetitions = n / length
     val numberOfCharInString = s.count { it == 'a' }.toLong()
-    val numberOfCharInRecurringString = numberOfCharInString * lineNumberOfRepetitions
-    val remainderCount = n % length
-    val remainderString = s.subSequence(0, remainderCount.toInt())
+    val numberOfCharInRecurringString = numberOfCharInString * (n / s.length)
+    val remainderCount = n % s.length
+    val remainderString = s.substring(0 until (n % s.length).toInt())
     val numberOfCharInRemainderString = remainderString.count { it == 'a' }
-    val result = numberOfCharInRecurringString + numberOfCharInRemainderString
-    return result
+    return numberOfCharInRecurringString + numberOfCharInRemainderString
 }*/
 
 fun func(s: String, n: Long): Long {
-    return s.count{it=='a'}.toLong()*n/s.length+s.subSequence(0,(n%s.length).toInt()).count{it=='a'}
+    return s.count{it=='a'}.toLong()*(n/s.length)+s.substring(0,(n%s.length).toInt()).count{it=='a'}
 }
 
 fun main(args: Array<String>) {
 
-    println(7L == func("aba", 10))
+    println(7L == func("aba", 11)) //abaabaabaab
     println(1L == func("aba", 2))
-    println(func("aba", 2))
-    println(1L == func("aba", 1))
+    println(1L == func("abaaba", 1))
+    println(1L == func("ababjknbj", 2))
+    println(2L == func("ababjknbj", 3))
+    println(7L == func("abaaba", 10))
+    println(0L == func("ba", 1))
+    println(1L == func("ba", 2))
+    println(5L == func("ba", 10))
 
-    println("return s.count{it=='a'}.toLong()*n/s.length+s.subSequence(0,(n%s.length).toInt()).count{it=='a'}".count())
+    println("return s.count{it=='a'}.toLong()*(n/s.length)+s.substring(0,(n%s.length).toInt()).count{it=='a'}".count())
 
 /*    val scan = Scanner(System.`in`)
     println("0. Введите бесконечную строку:")
