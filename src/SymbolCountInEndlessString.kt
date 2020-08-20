@@ -9,7 +9,7 @@
 }*/
 
 fun func(s: String, n: Long): Long {
-    return s.count{it=='a'}.toLong()*(n/s.length)+s.substring(0,(n%s.length).toInt()).count{it=='a'}
+    return s.count{it=='a'}.toLong()*(n/s.length)+s.substring(0,n.toInt()%s.length).count{it=='a'}
 }
 
 fun main(args: Array<String>) {
@@ -24,7 +24,7 @@ fun main(args: Array<String>) {
     println(1L == func("ba", 2))
     println(5L == func("ba", 10))
 
-    println("return s.count{it=='a'}.toLong()*(n/s.length)+s.substring(0,(n%s.length).toInt()).count{it=='a'}".count())
+    println("return s.count{it=='a'}.toLong()*(n/s.length)+s.substring(0,n.toInt()%s.length).count{it=='a'}".count())
 
 /*    val scan = Scanner(System.`in`)
     println("0. Введите бесконечную строку:")
